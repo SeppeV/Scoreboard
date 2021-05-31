@@ -31,7 +31,15 @@ label = QtWidgets.QLabel("Team B:")
 edit = QtWidgets.QTextEdit()
 layout.addRow(label, edit) # Nieuw
 
+button1 = QtWidgets.QPushButton("Save", wid)
+button1.show()
 
+
+
+# edit_title_size = QtWidgets.QSpinBox()
+# edit_title_size = QtWidgets.QPushButton()
+# edit_title_size.setMinimum(4)
+# edit_title_size.setMaximum(1000)
 
 app.exec_()
 
