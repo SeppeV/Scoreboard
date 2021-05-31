@@ -1,19 +1,25 @@
 import pygame
 
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+ploegnaamA = config["teamA"]["naam"]
+print(ploegnaamA)
+
+ploegnaamB = config["teamB"]["naam2"]
+print(ploegnaamB)
+
+titel = config["algemeen"]["titel"]
+print(titel)
+
 WIDTH = 800
 HEIGHT = 600
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-
-
-
-
 # TODO: Laad hier je font
 # font = ...
-
-
 
 score1 = 0
 score2 = 0
@@ -33,18 +39,32 @@ while running:
                 score2 = 0
 
 
-    screen.fill("black")
+    screen.fill("white")
 
     font = pygame.font.SysFont("comicsansms", 24)
-    text = font.render(f"{score1}-{score2}", True, "white")
+    text = font.render(f"{score1}", True, "black")
     h = text.get_height()
     w = text.get_width()
-    screen.blit(text,(WIDTH/2-w/2 ,HEIGHT/2-h/2))
+    screen.blit(text,(WIDTH/4-w/2 ,HEIGHT/2-h/4))
 
-    text = font.render(f"{set1}-{set2}", True, "white")
-    h = text.get_height(30)
-    w = text.get_width(40)
-    screen.blit(text, (WIDTH / 2 - w / 2, HEIGHT / 2 - h / 2))
+    font = pygame.font.SysFont("comicsansms", 24)
+    text = font.render(f"{score2}", True, "black")
+    h = text.get_height()
+    w = text.get_width()
+    screen.blit(text, (WIDTH / 1.25 - w / 3, HEIGHT / 2 - h / 4))
+
+    font = pygame.font.SysFont("comicsansms", 35)
+    text = font.render(f"    {ploegnaamA}              {ploegnaamB}", True, "black")
+    h = text.get_height()
+    w = text.get_width()
+    screen.blit(text, (WIDTH / 3 - w / 3, HEIGHT / 3 - h / 3))
+
+
+    font = pygame.font.SysFont("comicsansms", 25)
+    text = font.render(f"{titel}", True, "black")
+    h = text.get_height()
+    w = text.get_width()
+    screen.blit(text, (WIDTH / 2 - w / 2, HEIGHT / 11 - h / 2))
 
     label = "Hallo"
     # TODO: Render hier de tekst en toon op het scherm
