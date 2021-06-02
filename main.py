@@ -18,6 +18,10 @@ HEIGHT = 600
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
+maaseik = pygame.image.load("Maaseik.jpg")
+Roeselare= pygame.image.load("Knack.jpg")
+Roeselare = pygame.transform.smoothscale(Roeselare,(250, 175))
+
 # TODO: Laad hier je font
 # font = ...
 
@@ -40,24 +44,28 @@ while running:
 
 
     screen.fill("white")
+    screen.blit(maaseik, (100, 80))
+    screen.blit(Roeselare, (515, 110))
 
     font = pygame.font.SysFont("comicsansms", 24)
     text = font.render(f"{score1}", True, "black")
     h = text.get_height()
     w = text.get_width()
-    screen.blit(text,(WIDTH/4-w/2 ,HEIGHT/2-h/4))
+    screen.blit(text,(WIDTH/4-w/2 ,HEIGHT/1.25-h/2))
+
+
 
     font = pygame.font.SysFont("comicsansms", 24)
     text = font.render(f"{score2}", True, "black")
     h = text.get_height()
     w = text.get_width()
-    screen.blit(text, (WIDTH / 1.25 - w / 3, HEIGHT / 2 - h / 4))
+    screen.blit(text, (WIDTH / 1.25 - w / 3, HEIGHT / 1.25 - h / 2))
 
     font = pygame.font.SysFont("comicsansms", 35)
     text = font.render(f"    {ploegnaamA}              {ploegnaamB}", True, "black")
     h = text.get_height()
     w = text.get_width()
-    screen.blit(text, (WIDTH / 3 - w / 3, HEIGHT / 3 - h / 3))
+    screen.blit(text, (WIDTH / 3 - w / 3, HEIGHT /  1.75 - h / 2))
 
 
     font = pygame.font.SysFont("comicsansms", 25)
