@@ -26,7 +26,7 @@ Roeselare= pygame.image.load("roeselaretr.png")
 Roeselare = pygame.transform.smoothscale(Roeselare,(200, 150))
 
 # TODO: Laad hier je font
-# font = ...
+#title_font = pygame.font.font("texttype.ttf", 45)
 
 score1 = 0
 score2 = 0
@@ -70,8 +70,6 @@ while running:
                 uitset = 0
 
 
-
-
     screen.fill("white")
     screen.blit(achtergrond, (0, 0))
     screen.blit(maaseik, (130, 70))
@@ -84,8 +82,6 @@ while running:
     w = text.get_width()
     screen.blit(text,(WIDTH/4-w/2 ,HEIGHT/1.5-h/2))
 
-
-
     font = pygame.font.SysFont("comicsansms", 45)
     text = font.render(f"{score2}", True, "black")
     h = text.get_height()
@@ -97,7 +93,6 @@ while running:
     h = text.get_height()
     w = text.get_width()
     screen.blit(text, (WIDTH / 4 - w / 3, HEIGHT / 1.25 - h / 2))
-
 
     font = pygame.font.SysFont("comicsansms", 24)
     text = font.render(f"{uitset}", True, "black")
